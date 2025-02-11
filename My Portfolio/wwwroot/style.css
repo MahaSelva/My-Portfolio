@@ -6,6 +6,9 @@ body {
     color: #333;
     line-height: 1.6;
     background-color: #f7f7f7;
+    height: 100vh; /* Ensure the body takes the full viewport height */
+    display: flex;
+    flex-direction: column;
 }
 
 /* Header */
@@ -14,6 +17,11 @@ header {
     color: #fff;
     padding: 20px 0;
     text-align: center;
+    position: fixed; /* Fixed header */
+    top: 0;
+    width: 100%;
+    z-index: 1000; /* Ensures it stays above other elements */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow for better visibility */
 }
 
     header h1 {
@@ -51,9 +59,14 @@ nav ul {
 
 /* Main Content */
 main {
+    flex: 1; /* Allows the main section to take up the remaining height */
+    margin-top: 200px; /* Space below the fixed header */
+    overflow-y: auto; /* Enables vertical scrolling */
     padding: 20px;
+    background-color: #f7f7f7;
 }
 
+/* Sections */
 section {
     margin-bottom: 30px;
     padding: 20px;
@@ -88,6 +101,11 @@ footer {
 
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
+
+    main{
+        margin-top:160px;
+    }
+
     header h1 {
         font-size: 2rem;
     }
@@ -111,5 +129,9 @@ footer {
 
     footer {
         font-size: 0.9rem;
+    }
+
+    nav{
+        display:none;
     }
 }
