@@ -1,3 +1,8 @@
-﻿document.querySelector('h1').addEventListener('click', () => {
-    alert('Welcome to My Portfolio!');
+﻿// Simple interaction script
+document.querySelectorAll('nav ul li a').forEach(link => {
+    link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetId = link.getAttribute('href').substring(1);
+        document.getElementById(targetId).scrollIntoView({ behavior: 'smooth' });
+    });
 });
